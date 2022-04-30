@@ -12,16 +12,48 @@ public class Film {
 	private int languageId;
 	private int rentalDuration;
 	private double rentalRate;
-	private int lenth;
+	private int length;
 	private double replacementCost;
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actor;
+	private String language;
 	
-	//getters + setters
+	public Film() {}
+	
+	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
+			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.releaseYear = releaseYear;
+		this.languageId = languageId;
+		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
+		this.length = length;
+		this.replacementCost = replacementCost;
+		this.rating = rating;
+		this.specialFeatures = specialFeatures;
+		if (languageId == 1) {
+			this.language = "English"; }
+		if (languageId ==2) {
+			this.language = "Itilian"; }
+		if (languageId ==3) {
+			this.language = "Japanese"; }
+		if (languageId == 4) {
+			this.language = "Manderin"; }
+		if (languageId == 5) {
+			this.language = "French"; }
+		if (languageId == 6) { 
+			this.language = "German"; }		
+		}
+	
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -48,6 +80,19 @@ public class Film {
 	}
 	public void setLanguageId(int languageId) {
 		this.languageId = languageId;
+		if (languageId == 1) {
+			this.language = "English"; }
+		if (languageId ==2) {
+			this.language = "Itilian"; }
+		if (languageId ==3) {
+			this.language = "Japanese"; }
+		if (languageId == 4) {
+			this.language = "Manderin"; }
+		if (languageId == 5) {
+			this.language = "French"; }
+		if (languageId == 6) { 
+			this.language = "German"; }		
+		
 	}
 	public int getRentalDuration() {
 		return rentalDuration;
@@ -61,11 +106,11 @@ public class Film {
 	public void setRentalRate(double rentalRate) {
 		this.rentalRate = rentalRate;
 	}
-	public int getLenth() {
-		return lenth;
+	public int getLength() {
+		return length;
 	}
-	public void setLenth(int lenth) {
-		this.lenth = lenth;
+	public void setLength(int lenth) {
+		this.length = lenth;
 	}
 	public double getReplacementCost() {
 		return replacementCost;
@@ -86,14 +131,14 @@ public class Film {
 		this.specialFeatures = specialFeatures;
 	}
 	
-	//hashCode
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, id, languageId, lenth, rating, releaseYear, rentalDuration, rentalRate,
+		return Objects.hash(description, id, languageId, length, rating, releaseYear, rentalDuration, rentalRate,
 				replacementCost, specialFeatures, title);
 	}
 	
-	//equals
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -104,24 +149,33 @@ public class Film {
 			return false;
 		Film other = (Film) obj;
 		return Objects.equals(description, other.description) && id == other.id && languageId == other.languageId
-				&& lenth == other.lenth && Objects.equals(rating, other.rating) && releaseYear == other.releaseYear
+				&& length == other.length && Objects.equals(rating, other.rating) && releaseYear == other.releaseYear
 				&& rentalDuration == other.rentalDuration
 				&& Double.doubleToLongBits(rentalRate) == Double.doubleToLongBits(other.rentalRate)
 				&& Double.doubleToLongBits(replacementCost) == Double.doubleToLongBits(other.replacementCost)
 				&& Objects.equals(specialFeatures, other.specialFeatures) && Objects.equals(title, other.title);
 	}
 	
-	//toString
+
 	@Override
 	public String toString() {
-		return "Film [id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
-				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
-				+ ", lenth=" + lenth + ", replacementCost=" + replacementCost + ", rating=" + rating
-				+ ", specialFeatures=" + specialFeatures + "]";
+		return "Film Title: " + title + " Year Released: " + releaseYear + " Rating: " + 
+				rating +" Description" + description + " Language: " + language + " cast: " + actor;
+			
 	}
+	
+	
+	
+	
 	public List<Actor> getActor() {
 		return actor;
 	}
+//	@Override
+//	public String toString() {
+//		return "Film [title=" + title + ", description=" + description + ", releaseYear=" + releaseYear + ", actor="
+//				+ actor + ", language=" + language + "]";
+	
+
 	public void setActor(List<Actor> actor) {
 		this.actor = actor;
 	}

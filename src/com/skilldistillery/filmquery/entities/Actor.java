@@ -1,5 +1,6 @@
 package com.skilldistillery.filmquery.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,7 +12,18 @@ public class Actor {
 	private String lastName;
 	private List<Film> films;
 	
+	public Actor(int id, String firstName, String lastName, ArrayList<Film> films) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.films = films;
+	}
 	
+	public Actor() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}
